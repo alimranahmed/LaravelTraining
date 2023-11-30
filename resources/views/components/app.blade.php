@@ -11,9 +11,30 @@
 <body>
 
 <div class="px-4 sm:px-6 lg:px-8">
-    {{$slot}}
-</div>
+    <div class="max-w-5xl mx-auto">
+        <div class="flex justify-between p-3 border-b">
+            @auth
+                <div>
+                    <a href="/admin" class="hover:underline text-blue-600">Admin</a> |
+                    <a href="/user" class="hover:underline text-blue-600">User</a>
+                </div>
+                <div>
+                    <a href="/logout" class="hover:underline text-blue-600">Logout</a>
+                </div>
+            @endauth
 
+            @guest
+                <div>
+                    <a href="{{route('home')}}" class="hover:underline text-blue-600">Home</a>
+                </div>
+                <div>
+                    <a href="{{route('login')}}" class="hover:underline text-blue-600">Login</a>
+                </div>
+            @endguest
+        </div>
+        {{$slot}}
+    </div>
+</div>
 
 </body>
 </html>

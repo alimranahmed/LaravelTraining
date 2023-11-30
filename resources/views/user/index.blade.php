@@ -17,8 +17,9 @@
 
         </tbody>
 
-        {{ $users->links() }}
-
-
     </x-table>
+
+    <div class="mt-3">
+        {{ $users->links() }}
+    </div>
 </x-app>
